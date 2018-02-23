@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Categories;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Category;
 
 class CategoriesController extends Controller
 {
@@ -14,7 +15,11 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories= Category::get();
+
+        return view("categories.index",
+                    ['categories' => $categories
+        ]);
     }
 
     /**
