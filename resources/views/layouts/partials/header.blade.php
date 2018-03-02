@@ -1,44 +1,54 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<header class="header">
+     <!-- Navbar -->
+     <nav class="navbar navbar-default">
+          <div class="container">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+               <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                    </button>
+                    <a  href="index.html"><h1>Games <img src="images/c1.png" alt=" " /> Zone</h1></a>
+               </div>
 
-            </ul>
+               <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                         <li class="hover-effect"><a href="index.html">Home</a></li>
+                         <li class="hover-effect"><a href="about.html">About</a></li>
+                         <li class="hover-effect"><a href="games.html">Games</a></li>
+                         <li class="hover-effect"><a href="news.html">News</a></li>
+                         <li class="hover-effect"><a href="contact.html">Contact</a></li>
+                    </ul>
+               </div>
 
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
+          </div>
+     </nav>
+     <!-- //Navbar -->
 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
+     <!-- Slider -->
+     <div class="slider">
+          <ul class="rslides" id="slider">
+               <li>
+                    <img src="{{ asset('images/banner3.jpg') }}" alt="" />
+               </li>
+          </ul>
+     </div>
+     <!-- //Slider -->
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
-        </div>
-    </div>
-</nav>
+</header>
+<!-- Banner-Slider-JavaScript -->
+<script src="{{ asset('js/responsiveslides.min.js') }}"></script>
+<script>
+     $(function () {
+          $("#slider").responsiveSlides({
+               auto: true,
+               nav: true,
+               speed: 800,
+               namespace: "callbacks",
+               pager: true,
+          });
+     });
+</script>
+<!-- //Banner-Slider-JavaScript -->
