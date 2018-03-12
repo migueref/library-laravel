@@ -15,8 +15,9 @@ class CategoriesController extends Controller
      */
     public function __construct()
     {
-         
+
     }
+
     public function index()
     {
         $categories= Category::get();

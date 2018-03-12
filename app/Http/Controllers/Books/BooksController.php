@@ -17,8 +17,9 @@ class BooksController extends Controller
      */
     public function index()
     {
-        dd("asd");
+          dd("asd");
     }
+
 
     /**
      * Show the form for creating a new resource.
