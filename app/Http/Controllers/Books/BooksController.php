@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Book;
 use App\Category;
 use App\Author;
+use Mail;
+use App\Mail\BookConfirmation;
+use Illuminate\Support\Facades\Auth;
 
 class BooksController extends Controller
 {
@@ -17,7 +20,10 @@ class BooksController extends Controller
      */
     public function index()
     {
-          dd("asd");
+         $sendTo = Auth::user()->email;
+         $book = Book::find(1);
+         Mail::to($sendTo)->send(new BookConfirmation($book));
+         dd("Enviado");
     }
 
 
